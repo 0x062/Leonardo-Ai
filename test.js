@@ -21,13 +21,12 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
   const page = await browser.newPage();
 
-  // Set direktori unduhan
-  await page._client.send('Page.setDownloadBehavior', {
+  const client = await page.target().createCDPSession();
+  await client.send('Page.setDownloadBehavior', {
     behavior: 'allow',
     downloadPath: path.resolve(DOWNLOAD_DIR),
-  });
+    });
 
-  // 1. Login
   await page.goto('https://leonardo.ai/login', { waitUntil: 'networkidle2' });
   await page.type('input[name="email"]', LEONARDO_EMAIL);
   await page.type('input[name="password"]', LEONARDO_PASSWORD);
