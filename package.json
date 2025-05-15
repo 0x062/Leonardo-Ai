@@ -1,0 +1,15 @@
+{
+  "name": "leonardo-puppeteer",
+  "version": "1.0.0",
+  "description": "Automatisasi generate gambar dan video anime dari Leonardo.ai menggunakan Puppeteer",
+  "main": "leonardo_puppeteer.js",
+  "scripts": {
+    "start": "node leonardo_puppeteer.js"
+  },
+  "author": "Just Test",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "puppeteer": "^22.5.1"
+  }
+}
